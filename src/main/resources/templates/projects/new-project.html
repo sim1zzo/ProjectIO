@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html
+  xnlns:th="http://www.thymeleaf.org/"
+  xmlns:xnlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.w3.org/1999/xhtml"
+>
+  <head th:replace="layouts:: header"></head>
+  <body>
+    <nav th:replace="layouts:: navbar"></nav>
+    <p></p>
+    <div class="container">
+      <form action="/projects/save" th:object="${project}" method="POST">
+        <div class="mb3">
+          <select class="form-select" th:field="${project.stage}">
+            <option th:value="NOTSTARTED">Not Started</option>
+            <option th:value="INPROGRESS">In Progress</option>
+            <option th:value="COMPLETED">Completed</option>
+          </select>
+        </div>
+        <p></p>
+        <div class="projectName">
+          <label for="exampleFormControlTextarea1" class="form-label"
+            >Project Name</label
+          >
+          <input
+            type="text"
+            placeholder="Project Name"
+            th:field="${project.name}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label"
+            >Project Description</label
+          >
+          <textarea
+            class="form-control"
+            type="text"
+            placeholder="Enter Project Description"
+            th:field="${project.description}"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <select
+          class="form-select form-select-sm"
+          aria-label=".form-select-sm example"
+          multiple
+          th:field="*{employees}"
+        >
+          <option
+            th:each="employee : ${allEmployees}"
+            th:value="${employee.employeeId}"
+            th:text="${employee.firstName}"
+          ></option>
+        </select>
+        <div class="submit">
+          <p></p>
+          <button type="submit" class="btn btn-primary">Create Project</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html
+  xnlns:th="http://www.thymeleaf.org/"
+  xmlns:xnlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.w3.org/1999/xhtml"
+>
+  <head th:replace="layouts:: header"></head>
+  <body>
+    <nav th:replace="layouts:: navbar"></nav>
+
+    <div class="container">
+    	<p></p>
+      <form action="/employees/save" th:object="${employee}" method="POST">
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            placeholder="Mario"
+            th:field="${employee.firstName}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Rossi"
+            th:field="${employee.lastName}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="mario.rossi@email.com"
+            th:field="${employee.email}"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Employee!</button>
+      </form>
+    </div>
+  </body>
+</html>
