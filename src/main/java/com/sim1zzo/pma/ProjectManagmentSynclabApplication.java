@@ -1,15 +1,12 @@
 package com.sim1zzo.pma;
 
 
-
-
+import com.sim1zzo.pma.dao.EmployeeRepository;
+import com.sim1zzo.pma.dao.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.sim1zzo.pma.dao.EmployeeRepository;
-import com.sim1zzo.pma.dao.ProjectRepository;
 
 
 @SpringBootApplication(scanBasePackages= {"com.sim1zzo.pma", "com.sim1zzo.utils"})
@@ -27,7 +24,9 @@ public class ProjectManagmentSynclabApplication {
 		
 		SpringApplication.run(ProjectManagmentSynclabApplication.class, args);
 	}
-	
+
+
+
 	
 //	
 //	@Bean
