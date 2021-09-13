@@ -15,9 +15,24 @@ import com.sim1zzo.pma.entities.Employee;
 public class EmployeeController {
 	
 	@Autowired
-	private EmployeeRepository empRepo;
+	private EmployeeRepository empRepo; //Field injection
 	
 	
+	
+////	Constructor injection
+//	public EmployeeController(EmployeeRepository empRepo) {
+//		this.empRepo = empRepo;
+//	}
+	
+//	@Autowired
+////	SETTER INJECTION
+//	public void setEmpRepo(EmployeeRepository empRepo) {
+//		this.empRepo = empRepo;
+//	}
+
+
+
+
 	@RequestMapping("/new")
 	public String displayEmployeeForm(Model model) {
 		
